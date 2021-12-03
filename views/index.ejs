@@ -1,0 +1,45 @@
+<%- include('partials/header.ejs'); %>
+<body>
+    <div class="container">
+        <br>
+        <nav class="nav nav-pills nav-fill">
+            <a class="nav-link active" aria-current="page" href="/home">Inicio</a>
+            <a class="nav-link" href="/information">Salvar Gastos</a>
+            <a class="nav-link" href="/savelinks">Salvar Links</a>  
+        </nav>
+        <br>
+        <div class="card">
+            <div class="card-header">
+              <h3>Bem vindo ao seu diario</h3>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <h4>Anotações</h4>
+        <br><hr>
+        <h4>Adicionar</h4>
+        <form method="POST" action="/saveAnotacao">
+            <label >Adicionar titulo da Anotação</label><br>
+            <input type="text" class="form-control"  placeholder="titulo" name="titulo"><br>
+            <label >Anotação</label><br>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="anotacao"></textarea><br>
+            <button  class="btn btn-primary">Adicionar</button>
+        </form>
+        <hr>      
+        <div class="container">
+            <% anotacao.forEach(anotacao => { %>
+                <br>
+                <div class="card">
+                    <div class="card-body">   
+                        <h3><%= anotacao.titulo %></h3>
+                    </div>
+                    <div class="card-footer">
+                        <p><%= anotacao.anotacao %></p>
+                    </div>
+                </div>    
+            <% }) %>         
+        </div>        
+        <br><hr>
+    </div>
+</body>
+<%- include('partials/footer.ejs'); %>

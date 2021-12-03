@@ -1,0 +1,43 @@
+<%- include('partials/header.ejs'); %>
+<body>
+    <div class="container">
+        <br>
+        <nav class="nav nav-pills nav-fill">
+            <a class="nav-link"  href="/home">Inicio</a>
+            <a class="nav-link" href="/information">Salvar Gastos</a>
+            <a class="nav-link active" aria-current="page" href="/savelinks">Salvar Links</a>  
+        </nav>
+        <br>
+        <div class="card">
+            <div class="card-header">
+              <h3>pagina para salvar links</h3>
+            </div>
+        </div>
+        <br>
+        <form method="POST" action="/saveLink">
+            <label >Adicionar titulo do link</label><br>
+            <input type="text" class="form-control"  placeholder="titulo" name="tituloLink"><br>
+            <label >Link</label><br>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="link"></textarea><br>
+            <button  class="btn btn-primary">Adicionar</button>
+        </form>  
+        <br><hr>
+        <h4>Links salvos</h4>
+        <br>
+        <% link.forEach(link => { %>
+        <div class="card w-75">
+            <div class="card-body">
+              <h5 class="card-title"><%= link.tituloLinks %></h5>
+              <p class="card-text"><%= link.links %></p>
+              <a href= <%= link.links %> class="btn btn-primary">Entrar</a>
+            </div>
+            <hr>
+        </div>
+        <% }) %>
+        <br><br>
+        <h4>>Adicionar Links<</h4>
+        <br>
+            
+    </div>
+</body>
+<%- include('partials/footer.ejs'); %>

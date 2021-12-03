@@ -1,0 +1,44 @@
+<%- include('partials/header.ejs'); %>
+<body>
+    <div class="container">
+        <br>
+        <nav class="nav nav-pills nav-fill">
+            <a class="nav-link" href="/home">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="/information">Salvar Gastos</a>
+            <a class="nav-link" href="/savelinks">Salvar Links</a>  
+        </nav>
+        <br>
+        <div class="card">
+            <div class="card-header">
+              <h3>Pagina Para salvar Gastos</h3>
+            </div>
+        </div>
+        <br>
+        <br>
+        <form method="POST" action="/saveInformation">
+            <label >Adicionar motivo dos Gastos</label><br>
+            <input type="text" class="form-control"  placeholder="titulo" name="tituloInformacao"><br>
+            <label >Valores</label><br>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="information"></textarea><br>
+            <button  class="btn btn-primary">Adicionar</button>
+        </form>    
+        <br><hr>
+        <h4>Gastos salvos</h4>
+        <br>
+        
+          
+          <% information.forEach(information => { %>
+            <br>
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title"><%= information.tituloIformation %></h5>
+                <p class="card-text"><%= information.information %></p>
+              </div>
+            </div>
+          <% }) %>
+        
+        <br><br>
+        
+    </div>
+</body>
+<%- include('partials/footer.ejs'); %>
