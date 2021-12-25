@@ -5,7 +5,7 @@
         <nav class="nav nav-pills nav-fill">
             <a class="nav-link active" aria-current="page" href="/home">Inicio</a>
             <a class="nav-link" href="/information">Salvar Gastos</a>
-            <a class="nav-link" href="/savelinks">Salvar Links</a>  
+            <a class="nav-link" href="/links">Links</a>  
         </nav>
         <br>
         <div class="card">
@@ -36,7 +36,17 @@
                     <div class="card-footer">
                         <p><%= anotacao.anotacao %></p>
                     </div>
-                </div>    
+                </div>
+                <br>
+                <form method="POST" action="/anotacao/delete" style="display:inline">
+                    <input type="hidden" name="id" value="<%= anotacao.id %>">
+                    <button class="btn btn-danger">Excluir</button>
+                </form>
+                <form method="POST" action="/anotacao/delete" style="display:inline">
+                    <input type="hidden" name="id" value="<%= anotacao.id %>">
+                    <button class="btn btn-warning">Editar</button>
+                </form>
+                <hr>    
             <% }) %>         
         </div>        
         <br><hr>

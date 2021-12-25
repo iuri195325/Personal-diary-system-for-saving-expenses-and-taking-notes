@@ -5,7 +5,7 @@
         <nav class="nav nav-pills nav-fill">
             <a class="nav-link"  href="/home">Inicio</a>
             <a class="nav-link" href="/information">Salvar Gastos</a>
-            <a class="nav-link active" aria-current="page" href="/savelinks">Salvar Links</a>  
+            <a class="nav-link active" aria-current="page" href="/links">Links</a>  
         </nav>
         <br>
         <div class="card">
@@ -13,6 +13,8 @@
               <h3>pagina para salvar links</h3>
             </div>
         </div>
+        <br>
+        <h4>Adicionar Links</h4>
         <br>
         <form method="POST" action="/saveLink">
             <label >Adicionar titulo do link</label><br>
@@ -26,16 +28,26 @@
         <br>
         <% link.forEach(link => { %>
         <div class="card w-75">
+            
             <div class="card-body">
               <h5 class="card-title"><%= link.tituloLinks %></h5>
               <p class="card-text"><%= link.links %></p>
               <a href= <%= link.links %> class="btn btn-primary">Entrar</a>
             </div>
-            <hr>
         </div>
+        <br>
+        <form method="POST" action="/links/delete" style="display:inline">
+            <input type="hidden" name="id" value="<%= link.id %>">
+            <button class="btn btn-danger">Excluir</button>
+        </form>
+        <form method="POST" action="/anotacao/delete" style="display:inline">
+            <input type="hidden" name="id" value="<%= link.id %>">
+            <button class="btn btn-warning">Editar</button>
+        </form>
+        <hr>
         <% }) %>
         <br><br>
-        <h4>>Adicionar Links<</h4>
+        
         <br>
             
     </div>
